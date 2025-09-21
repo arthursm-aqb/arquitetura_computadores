@@ -1,4 +1,5 @@
 .text 
+#Faça um programa para ler duas notas de um aluno do IFRN em um curso semestral. Esse programa deverá apresentar a média desse aluno, após as duas provas.
 main:
 	addi $v0, $zero, 5
 	syscall
