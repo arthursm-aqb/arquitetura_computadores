@@ -1,4 +1,5 @@
 .text 
+#Faça um programa para ler dois números inteiros e imprimir a multiplicação desses dois números
 main:
 	add $v0, $zero, 5
 	syscall
