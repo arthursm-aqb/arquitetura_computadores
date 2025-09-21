@@ -1,4 +1,5 @@
 .text 
+#Faça um programa para ler um número inteiro e imprimir o dobro desse número.
 main:
 	add $v0, $zero, 5
 	syscall
