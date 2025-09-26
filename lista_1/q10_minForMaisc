@@ -1,0 +1,10 @@
+.text
+main:
+	#Faça um programa que leia um caractere minúsculo e imprima o seu equivalente maiúsculo.
+	add $v0, $zero, 12
+	syscall
+	add $a0, $v0, -32
+	add $v0, $zero, 11
+	syscall
+	add $v0, $zero, 10
+	syscall

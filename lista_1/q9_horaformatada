@@ -1,0 +1,31 @@
+.text
+main:
+	#Faça um programa que leia um número inteiro, representando a duração em segundos de um experimento científico e imprima o tempo decorrido nesse experimento no formato h:m:s.
+	add $v0, $zero, 5
+	syscall
+	add $t0, $zero, $v0
+	add $t1, $zero, 3600
+	div $t0, $t1
+	mflo $t0
+	mfhi $t1
+	add $t2, $zero, 60
+	div $t1, $t2
+	mflo $t1
+	mfhi $t2
+	add $a0, $zero, $t0
+	add $v0, $zero, 1
+	syscall
+	add $a0, $zero, 58
+	add $v0, $zero, 11
+	syscall
+	add $a0, $zero, $t1
+	add $v0, $zero, 1
+	syscall
+	add $a0, $zero, 58
+	add $v0, $zero, 11
+	syscall
+	add $a0, $zero, $t2
+	add $v0, $zero, 1
+	syscall
+	add $v0, $zero, 10
+	syscall
