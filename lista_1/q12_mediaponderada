@@ -1,0 +1,35 @@
+.text
+main:
+	addi $2, $0, 5
+	syscall
+	
+	sll $8, $2, 1
+	addu $8, $8, $2
+	
+	addi $2, $0, 5
+	syscall
+	
+	sll $9, $2, 3
+	addu $9, $9, $2
+	
+	addi $2, $0, 5
+	syscall
+	
+	sll $10, $2, 4
+	subu $10, $10, $2
+	
+	addi $11, $0, 27
+	
+	add $8, $8, $9
+	add $8, $8, $10
+	
+	divu $8, $11
+	mflo $4
+	
+	addi $2, $0, 1
+	syscall
+	
+
+	
+	addi $2, $0, 10
+	syscall
