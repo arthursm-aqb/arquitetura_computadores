@@ -1,0 +1,31 @@
+.text
+main:
+#Faça um programa que leia dois números inteiros e calcule e imprima a média aritmética simples desses dois números apresentando o resultado com um algarismo na casa fracionária.
+	addi $2, $0, 5
+	syscall
+	
+	add $8, $0, $2
+	
+	addi $2, $0, 5
+	syscall
+	
+	add $9, $0, $2
+	addi $10, $0, 2
+	
+	mtc1 $8, $f0
+	mtc1 $9, $f1
+	mtc1 $10, $f2
+	
+	cvt.s.w $f10, $f0
+	cvt.s.w $f11, $f1
+	cvt.s.w $f9, $f2
+	
+	add.s $f3, $f10, $f11 
+	div.s $f12, $f3, $f9
+	
+	addi $2, $0, 2
+	syscall
+	
+	addi $2, $0, 10
+	syscall
+	  
