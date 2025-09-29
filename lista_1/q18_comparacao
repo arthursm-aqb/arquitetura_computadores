@@ -1,0 +1,32 @@
+.text
+main:
+#Faça um programa que leia dois números e informe o menor deles (use apenas operações aritméticas e lógicas.
+	addi $2, $0, 5
+	syscall
+	
+	addu $8, $0, $2
+	
+	addi $2, $0, 5
+	syscall
+	
+	addu $9, $0, $2
+	
+	subu $10, $8, $9
+	
+	sra $10, $10, 31
+	
+	nor $11, $10, $0
+	
+	and $12, $10, $8
+	and $13, $11, $9
+	
+	or $4, $12, $13
+	
+	addi $2, $0, 1
+	
+	syscall
+	
+	addi $2, $0, 1
+	syscall
+	
+	

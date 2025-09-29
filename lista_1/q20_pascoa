@@ -1,0 +1,170 @@
+.text
+main:
+	addi $2, $0, 5
+	syscall
+	
+	addi $8, $0, 19
+	addi $9, $0, 100
+	addi $11, $0, 4
+	
+	div $2, $8
+	
+	mfhi $8 #a, a = ano mod 19
+	
+	div $2, $9
+	
+	mflo $9 #b, b = ano/100
+	mfhi $10 #c, c = ano mod 100
+	
+	div $9, $11
+	
+	mflo $11 #d d = b div 4
+	mfhi $12 #e e = b mod 4
+	
+	#MÊS = (h + L - 7 * m + 114) div 31
+	#DIA = ((h + L - 7 * m + 114) mod 31) + 1
+	
+	#f, f = (b + 8) div 25
+	
+	addi $13, $9, 8 # b+8
+	addi $14, $0, 25 # dps de dividir pode descartar
+	div $13,  $14 # (b+8) div 25
+	mflo $13 #temp f = (b+8) div 25
+	
+	#g, g = (b - f + 1) div 3
+	
+	addi $15, $9, 1 # b+1
+	sub $13, $15, $13 #b+1-f
+	addi $14, $0, 3 # div 3
+	div $13, $14 # (b+1-f) div 3
+	mflo $13 #g, g = (b+1-f) div 3
+	
+	#h, h = (19 * a + b - d - g + 15) mod 30
+	
+	addi $14, $0, 19 # mult 19
+	mult $8, $14 # 19*a
+	mflo $14 # aqui vai ser o h, 19*a
+	
+	add $14, $14, $9 # (19*a+b)
+	sub $14, $14, $11 # (19*a+b)-d
+	sub $14, $14, $13 # (19*a+b)-d-g
+	addi $14, $14, 15 # (19*a+b)-d-g+15
+	
+	addi $9, $0, 30 # pode ser descartado, div 30
+	div $14, $9 # (19*a+b-d-g+15) mod 30
+	
+	mfhi $14 # h = (19*a+b-d-g+15) mod 30
+	
+	# i, i = c div 4
+	
+	addi $9, $0, 4 # div 4
+	div $10, $9 # c div 4
+	mflo $9 # i = c div 4
+	
+	# k = c mod 4
+	
+	addi $11, $0, 4 # mod 4
+	div $10, $11 # c mod 4
+	mfhi $11 # k = c mod 4
+	
+	#L, (32 + 2 * e + 2 * i - h - k) mod 7
+	
+	addi $10, $0, 2 # mult 2
+	mult $12, $10 # e * 2
+	mflo $12 # e * 2
+	
+	mult $9, $10 # i * 2
+	mflo $9 # i * 2
+	
+	addi $12, $12, 32 # e * 2 + 32
+	add $12, $12, $9 # e * 2 + 32 + 2 * i
+	sub $12, $12, $14 # e * 2 + 32 + 2 * i - h
+	sub $12, $12, $11 # e * 2 + 32 + 2 * i - h - k
+	addi $11, $0, 7 # mod 7
+	div $12, $11 # (e * 2 + 32 + 2 * i - h - k) mod 7
+	mfhi $12 # L = (e * 2 + 32 + 2 * i - h - k) mod 7
+	
+	
+	#m, m = (a + 11 * h + 22 * L) div 451
+	
+	addi $9, $0, 11 # mult 11
+	mult $14, $9 # h*11
+	mflo $10 #10 = 11*h
+	
+	addi $15, $0, 22 # mult 22
+	mult $12,$15 # L * 22
+	mflo $15 # $15 = 22*L
+	
+	add $15, $15, $10 # 22*L+11*h
+	add $10, $8, $15 # 22*L+11*h+a
+	addi $15, $0, 451 # div 451
+	div $10, $15 # (22*L+11*h+a) div 451
+	mflo $10 # m = (22*L+11*h+a) div 451
+	
+	# MÊS
+	add $8, $14, $12 # H+L
+	addi $8, $8, 114 # H+L+114
+	addi $9, $0, 7 # mult 7
+	mult $10, $9 # m * 7
+	mflo $9 # $9 = m * 7
+	sub $8, $8, $9 # (H+L+114) - m * 7
+	addi $9, $0, 31 # div 31
+	div $8, $9 
+	mflo $8 # MÊS 
+	mfhi $9
+	addi $9, $9, 1 #DIA
+	
+	# $8 e $9 LOCKADO
+	
+	#MES
+	addi $10, $0, 10
+	div $8, $10
+	mflo $11 #DEZENA MES
+	mfhi $12 #UNIDADE MES
+	
+	div $9, $10
+	mflo $13 #DEZENA DIA
+	mfhi $14 #UNIDADE DIA
+	
+	add $15, $0, $2 #ANO
+	
+	addi $2, $0, 1
+	add $4, $0, $13
+	syscall
+	
+	add $4, $0, $14
+	syscall
+	
+	addi $2, $0, 11
+	addi $4, $0, 47
+	syscall
+	
+	addi $2, $0, 1
+	add $4, $0, $11
+	syscall
+	
+	add $4, $0, $12
+	syscall
+	
+	addi $2, $0, 11
+	addi $4, $0, 47
+	syscall
+	
+	addi $2, $0, 1
+	add $4, $0, $15
+	syscall
+	
+	addi $2, $0, 10
+	syscall
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
