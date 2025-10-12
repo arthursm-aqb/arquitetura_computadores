@@ -1,0 +1,64 @@
+.text
+main:
+	addi $2, $0, 5
+	syscall
+	
+	addu $8, $0, $2 #idade
+	
+	addi $2, $0, 5
+	syscall
+	
+	addu $9, $0, $2 #tempo de serviço
+	
+	addi $11, $0, 65 
+	
+	slt $10, $11, $8 #se tiver mais que 65, $10 recebe 1
+	
+	beq  $8, $11, aposentado
+	
+	addi $11, $0, 40 
+	
+	beq  $9, $11, aposentado
+	
+	slt $12, $11, $9 #se tiver mais que 40, $12 recebe 1
+	
+	addi $11, $0, 59 
+	
+	slt $13, $11, $8
+	
+	addi $11, $0, 35
+	
+	slt $14, $11, $9
+	
+	and $13, $13, $14
+	
+	or $10, $10, $12
+	or $10, $10, $13
+	
+	beq $10, 1, aposentado
+	
+	j golpidoinsskkkkk
+	
+	
+	aposentado:
+		addi $2, $0, 11
+		addi $4, $0, 83
+		syscall
+		
+		addi $2, $0, 10
+		syscall
+	
+	golpidoinsskkkkk:
+	
+		addi $2, $0, 11
+		addi $4, $0, 78
+		syscall
+		
+		addi $2, $0, 10
+		syscall
+	
+	
+	
+	
+	
+	
