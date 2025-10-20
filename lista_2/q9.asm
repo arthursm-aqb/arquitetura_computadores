@@ -1,3 +1,5 @@
+#Faça um programa que leia dia, mês e ano e informe a data seguinte e a data anterior.
+
 .text
 main:
 	addi $2, $0, 5

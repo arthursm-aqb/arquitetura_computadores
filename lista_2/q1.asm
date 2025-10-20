@@ -1,3 +1,5 @@
+#Faça um programa para ler dois números e informe qual deles é o maior.
+
 .text
 main:
 	addi $2, $0, 5

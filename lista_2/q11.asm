@@ -1,3 +1,10 @@
+#Um pico em uma onda mecânica é caracterizado por três valores de magnitude , a, b e
+#c, tais que (a<b e b>c) forma um pico positivo ou (a>b e b<c) forma um pico negativo.
+#Faça um programa que leia 3 números e indique se formam um pico, imprimindo a
+#letra P, caso formem. Além disso o código deve informar se o pico é positivo negativo,
+#acrescentando um sinal de + ou de – após a letra P. Se os três pontos não formarem
+#um pico, deve ser impressa a letra N.
+
 .text
 main:
 
@@ -60,6 +67,7 @@ syscall
 addi $2, $0, 10
 syscall
 
+mul 
 NP:
 
 addi $4, $0, 78

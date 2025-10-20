@@ -1,3 +1,5 @@
+#Faça um programa que leia dia, mês e ano e informe se a data é válida.
+
 .text
 main:
 	addi $2, $0, 5
