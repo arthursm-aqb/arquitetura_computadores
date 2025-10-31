@@ -125,7 +125,7 @@ add $4, $0, $15 # PICOS CONTADOS
 addi $2, $0, 1
 syscall
 
-add $4, $0, 10 # PICOS CONTADOS
+add $4, $0, 10 # Quebra de linha
 addi $2, $0, 11 #'\n'
 syscall
 
