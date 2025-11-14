@@ -1,4 +1,4 @@
-#Alunos: Arthur da Silva Mariz e Raquel Martiniano Felix Pires TADS 2025.2 IFRN Natal Campus Central
+#Alunos: Arthur da Silva Mariz e Raquel Martiniano F�lix Pires 
 
 .data #0x10010000
 .text
@@ -100,6 +100,10 @@ main:
 
 	imprimir:
 
+	add $4, $0, 10
+	addi $2, $0, 11
+	syscall # Imprime quebra de linha
+	
 	add $4, $0, $12
 	addi $2, $0, 1
 	syscall # Imprime a soma máxima 
@@ -109,7 +113,7 @@ main:
 	syscall # Imprime quebra de linha
 
 	add $4, $0, 112
-	addi $2, $0, 11 # Imprime um 'p'
+	addi $2, $0, 11 # Imprime um 'p' de posicao
 	syscall
 
 	add $4, $0, $13
