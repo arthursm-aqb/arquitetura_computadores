@@ -7,7 +7,7 @@ main:
 	# $24 auxiliar
 	# $9 ponteiro ao endereço 0x1001
 	# $8 contador do loop
-	# $10 limite do loop
+	# $10 limite do loop e tamanho do vetor
 	
 	lui $9, 0x1001
 	
@@ -24,7 +24,7 @@ main:
 	slt $25, $24, $2
 	beq $25, 1, VerificaTAMdoVetor # Se N>500, pede outro tam N
 	
-	add $10, $0, $2
+	add $10, $0, $2 # Tamanho do vetor N
 	add $8, $0, $0
 	
 	getNum:
