@@ -11,18 +11,16 @@ main:
 	
 	lui $9, 0x1001
 	
-	VerificaTAMdoVetor:
-	
 	addi $2, $0, 5
 	syscall
 	
 	addi $24, $0, 1
 	slt $25, $2, $24
-	beq $25, 1, VerificaTAMdoVetor # Se N<1, pede outro tam N 
+	beq $25, 1, TAMINVALIDO # Se N<1, finaliza o programa imprimindo um "X", expressão de erro
 	
 	addi $24, $0, 500
 	slt $25, $24, $2
-	beq $25, 1, VerificaTAMdoVetor # Se N>500, pede outro tam N
+	beq $25, 1, TAMINVALIDO # Se N>500, finaliza o programa imprimindo um "X", expressão de erro
 	
 	add $10, $0, $2 # Tamanho do vetor N
 	add $8, $0, $0
@@ -143,6 +141,17 @@ main:
 
 	addi $2, $0, 10
 	syscall
+
+	TAMINVALIDO:
+
+	add $4, $0, 88
+	addi $2, $0, 11
+	syscall # Imprime a expressão de erro "X"
+
+	addi $2, $0, 10
+	syscall
+	
+	
 
 
 	   
