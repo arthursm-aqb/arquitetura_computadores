@@ -1,17 +1,28 @@
-#Alunos: Arthur da Silva Mariz e Raquel Martiniano F�lix Pires 
+#Alunos: Arthur da Silva Mariz e Raquel Martiniano Felix Pires 
 
 .data #0x10010000
 .text
 main:
-
-	#$9 ponteiro ao endereço 0x1001
-	#$8 contador do loop
-	#$10 limite do loop
+	# $25 valida tam de N
+	# $24 auxiliar
+	# $9 ponteiro ao endereço 0x1001
+	# $8 contador do loop
+	# $10 limite do loop
 	
 	lui $9, 0x1001
 	
+	VerificaTAMdoVetor:
+	
 	addi $2, $0, 5
 	syscall
+	
+	addi $24, $0, 1
+	slt $25, $2, $24
+	beq $25, 1, VerificaTAMdoVetor # Se N<1, pede outro tam N 
+	
+	addi $24, $0, 500
+	slt $25, $24, $2
+	beq $25, 1, VerificaTAMdoVetor # Se N>500, pede outro tam N
 	
 	add $10, $0, $2
 	add $8, $0, $0
@@ -113,7 +124,7 @@ main:
 	syscall # Imprime quebra de linha
 
 	add $4, $0, 112
-	addi $2, $0, 11 # Imprime um 'p' de posicao
+	addi $2, $0, 11 # Imprime um 'p'
 	syscall
 
 	add $4, $0, $13
