@@ -1,4 +1,4 @@
-#Alunos: Arthur da Silva Mariz e Raquel Martiniano F�lix Pires 
+#Alunos: Arthur da Silva Mariz e Raquel Martiniano Felix Pires TADS 2025.2 IFRN Natal Campus Central
 
 .data #0x10010000
 .text
