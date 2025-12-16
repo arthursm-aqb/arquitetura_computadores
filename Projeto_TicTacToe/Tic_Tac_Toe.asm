@@ -1664,7 +1664,7 @@ addi $10, $10, 56
 lui $8, 0x1001
 addi $8, $8, 28300
 addi $8, $8, 56
-ori $9, $0, 0x00FFFFF
+ori $9, $0, 0x00ffffff
 
 addi $15, $0, 22
 
