@@ -1658,6 +1658,36 @@ jr $31
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 toca_inicial: #preciso ver se posso deixar esse tempo ou preciso colocar 1000 em cada, e também preciso testar, vendo esse Lá no final
 
+lui $10, 0x1001
+addi $10, $10, 29324
+addi $10, $10, 56
+lui $8, 0x1001
+addi $8, $8, 28300
+addi $8, $8, 56
+ori $9, $0, 0x00FFFFF
+
+addi $15, $0, 22
+
+loop_LOADING:
+beq $15, $0, LATERAL_LOADING
+
+sw $9, 0($10)
+sw $9, 0($8)
+addi $8, $8, 4
+addi $10, $10, 4
+addi $15, $15, -1
+j loop_LOADING
+
+LATERAL_LOADING:
+lui $8, 0x1001
+addi $8, $8, 28812
+addi $8, $8, 56
+sw $9, 0($8)
+addi $8, $8, 84
+addi $10, $10, 56
+sw $9, 0($8)
+
+
 addi $6, $0, 0      # PIANO
 addi $7, $0, 120    # volume
 
@@ -1669,7 +1699,10 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700   # pausa
     addi $2, $0, 32
     syscall
-
+lui $8, 0x1001
+addi $8, $8, 28812
+addi $8, $8, 56
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1678,7 +1711,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== L�? =====
     addi $4, $0, 69     # nota L�?
     addi $5, $0, 700
@@ -1687,7 +1721,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1696,7 +1731,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== SI =====
     addi $4, $0, 71     # nota SI
     addi $5, $0, 700
@@ -1705,7 +1741,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1714,7 +1751,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== SI =====
     addi $4, $0, 71     # nota SI
     addi $5, $0, 700
@@ -1723,7 +1761,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1732,7 +1771,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== DÓ =====
     addi $4, $0, 72     # nota DÓ
     addi $5, $0, 700
@@ -1741,7 +1781,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1750,7 +1791,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== DÓ =====
     addi $4, $0, 72     # nota DÓ
     addi $5, $0, 700
@@ -1759,7 +1801,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1768,7 +1811,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== RÉ =====
     addi $4, $0, 74     # nota RÉ
     addi $5, $0, 700
@@ -1777,7 +1821,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1786,7 +1831,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== RÉ =====
     addi $4, $0, 74     # nota RÉ
     addi $5, $0, 700
@@ -1795,7 +1841,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1804,7 +1851,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 700
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== RÉ =====
     addi $4, $0, 74     # nota RÉ
     addi $5, $0, 700
@@ -1813,7 +1861,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 600
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== MI =====
     addi $4, $0, 64     # nota MI
     addi $5, $0, 700
@@ -1822,7 +1871,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 600
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== DÓ =====
     addi $4, $0, 72     # nota DÓ
     addi $5, $0, 700
@@ -1831,7 +1881,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 600
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== SI =====
     addi $4, $0, 71     # nota SI
     addi $5, $0, 700
@@ -1840,7 +1891,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 600
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
 # ===== L�? =====
     addi $4, $0, 69     # nota L�?
     addi $5, $0, 700
@@ -1849,7 +1901,8 @@ addi $7, $0, 120    # volume
     addi $4, $0, 600
     addi $2, $0, 32
     syscall
-
+addi $8, $8, 4
+sw $9, 0($8)
     jr $31
 
 # <---------------------------------------------------------------------------------------------------------------------------------->
